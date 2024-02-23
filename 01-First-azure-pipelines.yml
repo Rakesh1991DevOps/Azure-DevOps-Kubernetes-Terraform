@@ -17,7 +17,6 @@ pool:
 stages:
 - stage:"BUild"
   displayName:"Build"
-  jobs:
   - job:"Build"
     displayName: "Build Stage"
     steps:
