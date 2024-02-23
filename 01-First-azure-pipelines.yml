@@ -7,11 +7,10 @@ trigger:
 pool:
   vmImage: ubuntu-latest
 
-stages:
-- stage: "Print Output stage"
-  job:
-  - step:
-  - script: echo Hello, world to the Azure DevOps Pipelines!
+jobs:
+- job: Job1
+  steps:
+  - script: echo Hello, world to the Azure DevOps Pipelines from JOB1!
     displayName: 'Run a one-line script'
 
   - script: |
@@ -19,3 +18,8 @@ stages:
     echo See https://aka.ms/yaml
     echo We are adding stages and steps and Jobs
   displayName: 'Run a multi-line script'
+
+- job: Job2
+  steps:
+  - script: echo Hello, world to the Azure DevOps Pipelines from JOB2!
+    displayName: 'Run a one-line script'
