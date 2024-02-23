@@ -8,15 +8,21 @@ pool:
   vmImage: ubuntu-latest
 
 jobs:
-- job: Job1
+- job: DevEnvironment
   steps:
-  - script: echo Hello, world to the Azure DevOps Pipelines from JOB1!
+  - script: echo Hello, world to the Azure DevOps Pipelines from DevEnvironment!
     displayName: 'Run a one-line script'
   - script: |
       echo Add other tasks to build, test, and deploy your project.
       echo We are adding stages and steps and Jobs
     displayName: 'Run a multi-line script'
-- job: Job2
+- job: QAEnvironment
+  dependsOn: DevEnvironment
   steps:
-  - script: echo Hello, world to the Azure DevOps Pipelines from JOB2!
+  - script: echo Hello, world to the Azure DevOps Pipelines from QAEnvironment!
+    displayName: 'Run a one-line script'
+- job: PrePRODEnvironment
+  dependsOn: QAEnvironment
+  steps:
+  - script: echo Hello, world to the Azure DevOps Pipelines from PrePRODEnvironment!
     displayName: 'Run a one-line script'
