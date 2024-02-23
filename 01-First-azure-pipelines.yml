@@ -12,12 +12,10 @@ jobs:
   steps:
   - script: echo Hello, world to the Azure DevOps Pipelines from JOB1!
     displayName: 'Run a one-line script'
-
   - script: |
-    echo Add other tasks to build, test, and deploy your project.
-    echo We are adding stages and steps and Jobs
-  displayName: 'Run a multi-line script'
-
+      echo Add other tasks to build, test, and deploy your project.
+      echo We are adding stages and steps and Jobs
+    displayName: 'Run a multi-line script'
 - job: Job2
   steps:
   - script: echo Hello, world to the Azure DevOps Pipelines from JOB2!
