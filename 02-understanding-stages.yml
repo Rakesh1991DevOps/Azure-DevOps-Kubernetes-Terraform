@@ -20,12 +20,12 @@ stages:
   - job: SonarQubeAnaysis
     steps: 
     - bash: echo "This is SonarQube Anaysis Stage"
-- stage: Build & Push Docker Images
+- stage: BuildPushDockerImages
   jobs:
   - job: BuildPushDockerImages
     steps: 
     - bash: echo "This is Build & Push Docker Images Stage"
-- stage: Deploy to Kubernetes Cluster
+- stage: DeploytoKubernetesCluster
   jobs:
   - job: DeploytoKubernetesCluster
     steps: 
