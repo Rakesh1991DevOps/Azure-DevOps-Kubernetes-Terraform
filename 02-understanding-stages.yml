@@ -30,7 +30,3 @@ stages:
   - job: Deploy to Kubernetes Cluster
     steps: 
     - bash: echo "This is Deploy to Kubernetes Cluster Stage"
-
-steps:
-- script: echo Hello, world!
-  displayName: 'Run a one-line script'
