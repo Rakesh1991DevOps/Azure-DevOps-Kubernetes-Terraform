@@ -7,16 +7,16 @@ trigger:
 pool:
   vmImage: ubuntu-latest
 
-variables:
-  imageRepositiry:"kuberockapp/nginx:latest"
-  clusterName:
-  namespace:
-  dockerfilePath:
-  serviceConnection:
+# variables:
+  # imageRepositiry:"kuberockapp/nginx:latest"
+  # clusterName:
+  # namespace:
+  # dockerfilePath:
+  # serviceConnection:
 
 stages:
 - stage:"BUild"
-  displayName:"Build and Push the Image"
+  displayName:"Build"
   jobs:
   - job:"Build"
     displayName: "Build Stage"
