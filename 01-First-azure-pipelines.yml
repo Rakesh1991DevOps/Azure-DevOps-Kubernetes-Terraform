@@ -7,21 +7,9 @@ trigger:
 pool:
   vmImage: ubuntu-latest
 
-# variables:
-  # imageRepositiry:"kuberockapp/nginx:latest"
-  # clusterName:
-  # namespace:
-  # dockerfilePath:
-  # serviceConnection:
-
-stages:
-- stage:"BUild"
-  displayName:"Build"
-  - job:"Build"
-    displayName: "Build Stage"
-    steps:
-    - script: echo Hello, world to the Azure DevOps Pipelines!
-      displayName: 'Run a one-line script'
+steps:
+- script: echo Hello, world to the Azure DevOps Pipelines!
+  displayName: 'Run a one-line script'
 
 - script: |
     echo Add other tasks to build, test, and deploy your project.
