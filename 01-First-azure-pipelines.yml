@@ -21,7 +21,7 @@ stages:
   - job:"Build"
     displayName: "Build Stage"
     steps:
-    - script: echo Hello, world!
+    - script: echo Hello, world to the Azure DevOps Pipelines!
       displayName: 'Run a one-line script'
 
 - script: |
