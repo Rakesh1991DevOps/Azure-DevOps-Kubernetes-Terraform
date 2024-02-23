@@ -1,9 +1,34 @@
 trigger:
-- main
+  branches:
+    include:
+    - main:
 
 pool:
   vmImage: ubuntu-latest
 
-steps:
-- script: echo Hello, world!
-  displayName: 'Run a one-line script'
+# variables:
+  # imageRepository: kuberakeshalagunde/vprofileweb:latest
+  # clusterName: 
+  # namespace:
+  # dockerfilePath: Azure-DevOps-Kubernetes-Terraform/Dockerfile
+  # serviceConnection:
+
+stages:
+- stage:
+  jobs:
+  - job: EnvironmentVariablesDetails
+    steps:
+    - bash: echo "First Job to show all the artifacts"
+    - bash: echo $(Build.Buildnumber)
+    - bash: echo $(Build.BuildID)
+    - bash: echo $(Build.SourceBranchName)
+    - bash: echo $(Build.SourcesDirectory)
+    - bash: echo $(System.DefaultWorkingDirectory)
+    - bash: ls -R $(System.DefaultWorkingDirectory)
+    - bash: echo $(Build.ArtifactStagingDirectory)
+    - bash: java -version
+    - bash: node --version
+    - bash: python --version 
+    - bash: mvn -version 
+    - bash: ls -R $(Build.ArtifactStagingDirectory)
+    
