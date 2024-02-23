@@ -1,0 +1,36 @@
+trigger:
+- main
+
+pool:
+  vmImage: ubuntu-latest
+
+stages:
+- stage: Checkout
+  jobs:
+    - job: Checkout
+      step: 
+      - bash: echo "This is Checkout stage"
+- stage: Build
+  jobs:
+      - job: Build
+        step: 
+        - bash: echo "This is Build Stage"
+- stage: SonarQube Anaysis
+  jobs:
+      - job: SonarQube Anaysis
+        step: 
+        - bash: echo "This is SonarQube Anaysis Stage"
+- stage: Build & Push Docker Images
+  jobs:
+      - job: Build & Push Docker Images
+        step: 
+        - bash: echo "This is Build & Push Docker Images Stage"
+- stage: Deploy to Kubernetes Cluster
+  jobs:
+      - job: Deploy to Kubernetes Cluster
+        step: 
+        - bash: echo "This is Deploy to Kubernetes Cluster Stage"
+
+steps:
+- script: echo Hello, world!
+  displayName: 'Run a one-line script'
