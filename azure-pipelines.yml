@@ -22,19 +22,23 @@ stages:
     - bash: echo $(Build.SourceBranchName)
     - bash: echo $(Build.SourcesDirectory)
     - bash: echo $(System.DefaultWorkingDirectory)
-    - bash: ls -R $(System.DefaultWorkingDirectory)
+    # - bash: ls -R $(System.DefaultWorkingDirectory)
     - bash: echo $(Build.ArtifactStagingDirectory)
     # - bash: java -version
     # - bash: node --version
     # - bash: python --version 
     # - bash: mvn -version 
-    - bash: echo "Before copying the files" ls -R $(Build.ArtifactStagingDirectory)
-    - task: CopyFiles@2
+    # - bash: echo "Before copying the files" ls -R $(Build.ArtifactStagingDirectory)
+    # - task: CopyFiles@2
+    #   inputs:
+    #     SourceFolder: '$(System.DefaultWorkingDirectory)'
+    #     Contents: |
+    #       **/*.yml
+    #       **/*.tf
+    #     TargetFolder: '$(Build.ArtifactStagingDirectory)'
+    # - bash: echo "After copying the files" ls -R $(Build.ArtifactStagingDirectory)
+    - task: PublishBuildArtifacts@1
       inputs:
-        SourceFolder: '$(System.DefaultWorkingDirectory)'
-        Contents: |
-          **/*.yml
-          **/*.tf
-        TargetFolder: '$(Build.ArtifactStagingDirectory)'
-    - bash: echo "After copying the files" ls -R $(Build.ArtifactStagingDirectory)
-    
+        PathtoPublish: '$(Build.ArtifactStagingDirectory)'
+        ArtifactName: 'PRODArtifact'
+        publishLocation: 'Container'
