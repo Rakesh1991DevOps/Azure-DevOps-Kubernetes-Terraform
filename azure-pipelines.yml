@@ -1,6 +1,9 @@
 trigger:
 - main
 
+pool:
+  vmImage: ubuntu-latest
+
 resources:
 - repo: self
 
@@ -9,17 +12,13 @@ variables:
 
 stages:
 - stage: Build
-  displayName: Build image
   jobs:
   - job: Build
-    displayName: Build
-    pool:
-      vmImage: ubuntu-latest
     steps:
     - task: Docker@2
-      displayName: Build an image
       inputs:
-        command: build
-        dockerfile: '$(Build.SourcesDirectory)/Dockerfile'
-        tags: |
-          $(tag)
+        containerRegistry: 'AzureDevOps-Pipeline Integration with Docker Registry'
+        repository: 'kuberakeshalagunde/currency_exchange_image'
+        command: 'buildAndPush'
+        Dockerfile: '**/Dockerfile'
+        tags: '$(tag)'
