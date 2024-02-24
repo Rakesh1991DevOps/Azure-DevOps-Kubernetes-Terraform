@@ -5,7 +5,9 @@ pool:
   vmImage: ubuntu-latest
 
 variables:
-  platform: Dev
+  DevPlatform: Dev
+  QAPlatform: QA
+  PRODPlatform: PROD
 
 stages:
 - stage: Build
@@ -25,7 +27,7 @@ stages:
 - stage: QADeploy
   jobs:
   - deployment: QADeploy
-    environment: $(platform)
+    environment: $(QAPlatform)
     strategy:
      runOnce:
        deploy:
